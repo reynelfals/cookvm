@@ -1,0 +1,19 @@
+COOKVM 2.0 Example_BreadMachine
+ACTUATOR heater type=binary range=0-1 desc=main_resistive_heater
+ACTUATOR fan type=binary range=0-1 desc=air_circulation_fan
+ACTUATOR motor type=binary range=0-1 desc=bread_kneading_paddle
+SENSOR chamber type=temperature unit=C desc=wall_near_heater_element
+SENSOR food type=temperature unit=C desc=immersed_process_sensor_on_spindle
+LIMIT chamber_max=160 food_max=120
+VOLUME pan_ml=3000 working_ml=2200
+POWER heater_w=750
+INST HOLD args=sensor,value desc=regulate_heater_to_reach_and_maintain_sensor_temperature
+INST HOLD_OFF args=none desc=stop_temperature_regulation
+INST CEILING args=sensor,value desc=suppress_heater_if_sensor_exceeds_value
+INST BAND args=value desc=set_hysteresis_band_for_regulation
+NOTES boiling_peaks_at_96C_on_food_sensor
+NOTES motor_is_bread_paddle_not_whisk
+NOTES heater_and_motor_must_not_run_at_the_same_time
+NOTES thermal_lag_190000ms_coast_3C
+FEATURES autotune disconnect_policy
+END_CAPABILITY

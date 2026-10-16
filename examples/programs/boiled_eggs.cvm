@@ -1,0 +1,16 @@
+# Boiled eggs (bread machine, ~1 L water). Lines starting with # are comments
+# for humans; strip them before sending (PROGRAM ADD one line at a time).
+DISCONNECT STOP
+CEILING chamber 120
+CEILING food 100
+HOLD food 100
+WAIT_GE food 90 1800
+EMIT boiling
+WAIT 720
+HOLD_OFF
+SET heater 0
+SET fan 1
+WAIT 300
+SET fan 0
+EMIT ready
+HALT

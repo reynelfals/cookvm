@@ -1,0 +1,11 @@
+# Gentle whip: 8 x (20 s motor on, 10 s rest). No heater use.
+DISCONNECT STOP
+SET heater 0
+SET_R R0 8
+SET motor 1
+WAIT 20
+SET motor 0
+WAIT 10
+DJNZ R0 3
+EMIT whip_done
+HALT

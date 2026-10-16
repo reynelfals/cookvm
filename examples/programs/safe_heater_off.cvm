@@ -1,0 +1,5 @@
+# Recovery: force the heater off on a controller that rejects SET outside
+# DIRECT mode. Run it, then confirm heater=0 with STATUS.
+HOLD_OFF
+SET heater 0
+HALT

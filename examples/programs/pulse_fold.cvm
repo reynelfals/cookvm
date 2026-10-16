@@ -1,0 +1,11 @@
+# Pulse fold: 5 short 3 s paddle pulses with 15 s rests.
+DISCONNECT STOP
+SET heater 0
+SET_R R1 5
+SET motor 1
+WAIT 3
+SET motor 0
+WAIT 15
+DJNZ R1 3
+EMIT fold_done
+HALT

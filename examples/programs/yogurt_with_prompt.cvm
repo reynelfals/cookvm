@@ -1,0 +1,20 @@
+# Yogurt (needs a machine/brain that can ACK a PROMPT). Leave PROMPT out on
+# machines with no button and no app-side ACK path.
+DISCONNECT PAUSE
+CEILING chamber 120
+HOLD food 82
+WAIT_GE food 80 1800
+EMIT pasteurized
+HOLD_OFF
+SET fan 1
+WAIT_LE food 44 1800
+SET fan 0
+PROMPT add_culture
+SET motor 1
+WAIT 30
+SET motor 0
+HOLD food 43
+WAIT 28800
+HOLD_OFF
+EMIT yogurt_done
+HALT

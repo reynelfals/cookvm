@@ -1,0 +1,11 @@
+# Bake until the food probe reads ~95 C or 60 min elapse, whichever first.
+# Stop early (94-96 C) because the probe keeps rising ~4 C after the heater stops.
+DISCONNECT STOP
+CEILING chamber 150
+CEILING food 98
+HOLD chamber 140
+WAIT_GE food 95 3600
+HOLD_OFF
+SET heater 0
+EMIT bake_done
+HALT

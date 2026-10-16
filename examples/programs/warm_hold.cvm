@@ -1,0 +1,12 @@
+# Keep food warm at ~65 C for 1 hour, then stop.
+DISCONNECT STOP
+CEILING chamber 110
+CEILING food 75
+HOLD food 65
+WAIT_GE food 62 2400
+EMIT warm
+WAIT 3600
+HOLD_OFF
+SET heater 0
+EMIT warm_done
+HALT

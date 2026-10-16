@@ -1,0 +1,9 @@
+# Fan cooldown: run the fan until the chamber is below 45 C (max 20 min).
+DISCONNECT STOP
+HOLD_OFF
+SET heater 0
+SET fan 1
+WAIT_LE chamber 45 1200
+SET fan 0
+EMIT cool
+HALT

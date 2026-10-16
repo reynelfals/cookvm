@@ -1,0 +1,15 @@
+COOKVM 2.0 Example_PressureCooker
+ACTUATOR heater type=proportional range=0-100 unit=% desc=bottom_element
+ACTUATOR valve type=binary range=0-1 desc=pressure_release_valve
+ACTUATOR lid_lock type=binary range=0-1 desc=safety_lid_lock
+SENSOR food type=temperature unit=C desc=bottom_sensor
+SENSOR pressure type=pressure unit=bar desc=vessel_pressure
+LIMIT food_max=180 pressure_max=1.5
+INST HOLD args=sensor,value desc=regulate_heater_to_maintain_sensor_at_value
+INST HOLD_OFF args=none desc=stop_regulation
+INST PRESSURIZE args=value desc=lock_lid_heat_until_target_bar_reached_then_hold
+INST DEPRESSURIZE args=none desc=open_valve_wait_until_safe_unlock_lid
+INST CEILING args=sensor,value desc=soft_safety_limit_per_sensor
+NOTES never_open_lid_while_pressurized
+FEATURES disconnect_policy
+END_CAPABILITY
